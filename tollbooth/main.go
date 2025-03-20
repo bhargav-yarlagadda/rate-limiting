@@ -39,9 +39,7 @@ func main() {
 	// Attach the /ping endpoint with rate limiting middleware
 	// RateLimiter wraps the endPointHandler
 	http.Handle("/ping", RateLimiter(endPointHandler))
-	go func(){
-		cleanupClients()
-	}()
+
 	log.Println("Server started at :8080")
 
 	// Start the HTTP server at port 8080
